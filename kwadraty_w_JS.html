@@ -1,8 +1,9 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="kwadraty2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <meta charset="utf-8">
-  <title>Trollowe kwadraty</title>
+  <title>Trollowe kwadraty (jQuery)</title>
 </head>
 
 <body>
@@ -18,12 +19,12 @@
 </div>
 
 <script>
-  document.getElementById('start').addEventListener("click", wystartuj);
-  document.getElementById('reset').addEventListener("click", resetuj);
+  $('#start').on("click", wystartuj);
+  $('#reset').on("click", resetuj);
 
-  var licznik = document.getElementById('kliki').innerHTML;
+
   var wszystkieKwadraty = [];
-
+  var licznik = 0;
 
   for (var i = 0; i < 9; ++i) {
     wszystkieKwadraty[i] = document.createElement('div');
@@ -39,7 +40,7 @@
   }
 
   function wystartuj() {
-    document.getElementById('start').disabled = true;
+    $('#start').attr("disabled", true);
 
     // SZUFLOWANIE
     //metoda Fisher-Yates
@@ -62,119 +63,129 @@
     }
 
     shuffle(wszystkieKwadraty);
-    var main = document.getElementsByTagName('div')[0];
+    //var main = document.getElementsByTagName('div')[0];
     (function () {
       for (var i = 0; i < wszystkieKwadraty.length; i++) {
-        main.appendChild(wszystkieKwadraty[i]);
+        $('#main').append(wszystkieKwadraty[i]);
       }
     })();
 
-    document.getElementById('a0').addEventListener("click", funkcjaBox0);
-    document.getElementById('a1').addEventListener("click", funkcjaBox1);
-    document.getElementById('a2').addEventListener("click", funkcjaBox2);
-    document.getElementById('a3').addEventListener("click", funkcjaBox3);
-    document.getElementById('a4').addEventListener("click", funkcjaBox4);
-    document.getElementById('a5').addEventListener("click", funkcjaBox5);
-    document.getElementById('a6').addEventListener("click", funkcjaBox6);
-    document.getElementById('a7').addEventListener("click", funkcjaBox7);
-    document.getElementById('a8').addEventListener("click", funkcjaBox8);
+    $('#a0').on("click", funkcjaBox0);
+    $('#a1').on("click", funkcjaBox1);
+    $('#a2').on("click", funkcjaBox2);
+    $('#a3').on("click", funkcjaBox3);
+    $('#a4').on("click", funkcjaBox4);
+    $('#a5').on("click", funkcjaBox5);
+    $('#a6').on("click", funkcjaBox6);
+    $('#a7').on("click", funkcjaBox7);
+    $('#a8').on("click", funkcjaBox8);
   }
 
-    function funkcjaBox0() {
-      document.getElementById('t1').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t1').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox0() {
+    $('#t1').addClass('show-hide');
+    setTimeout(function () {
+      $('#t1').removeClass('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox1() {
-      document.getElementById('t2').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t2').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox1() {
+    $('#t2').addClass('show-hide');
+    setTimeout(function () {
+      $('#t2').removeClass('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox2() {
-      document.getElementById('t3').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t3').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox2() {
+    $('#t3').addClass('show-hide');
+    setTimeout(function () {
+      $('#t3').removeClass('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox3() {
-      document.getElementById('t4').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t4').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox3() {
+    document.getElementById('t4').classList.add('show-hide');
+    setTimeout(function () {
+      document.getElementById('t4').classList.remove('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox4() {
-      document.getElementById('t5').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t5').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox4() {
+    document.getElementById('t5').classList.add('show-hide');
+    setTimeout(function () {
+      document.getElementById('t5').classList.remove('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox5() {
-      document.getElementById('t6').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t6').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox5() {
+    document.getElementById('t6').classList.add('show-hide');
+    setTimeout(function () {
+      document.getElementById('t6').classList.remove('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox6() {
-      document.getElementById('t7').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t7').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox6() {
+    document.getElementById('t7').classList.add('show-hide');
+    setTimeout(function () {
+      document.getElementById('t7').classList.remove('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox7() {
-      document.getElementById('t8').classList.add('show-hide');
-      setTimeout(function () {
-        document.getElementById('t8').classList.remove('show-hide')
-      }, 400);
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-    }
+  function funkcjaBox7() {
+    document.getElementById('t8').classList.add('show-hide');
+    setTimeout(function () {
+      document.getElementById('t8').classList.remove('show-hide')
+    }, 400);
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
 
-    function funkcjaBox8() {
-      document.getElementById('a8').style.backgroundImage =
-        'url("trollface_sad.png")';
-      document.getElementById('a8').style.backgroundSize =
-        '100%';
-      document.getElementById('a8').style.backgroundRepeat =
-        'no-repeat';
-      licznik++;
-      document.getElementById('kliki').innerHTML = licznik;
-      document.getElementById('a0').removeEventListener("click", funkcjaBox0);
-      document.getElementById('a1').removeEventListener("click", funkcjaBox1);
-      document.getElementById('a2').removeEventListener("click", funkcjaBox2);
-      document.getElementById('a3').removeEventListener("click", funkcjaBox3);
-      document.getElementById('a4').removeEventListener("click", funkcjaBox4);
-      document.getElementById('a5').removeEventListener("click", funkcjaBox5);
-      document.getElementById('a6').removeEventListener("click", funkcjaBox6);
-      document.getElementById('a7').removeEventListener("click", funkcjaBox7);
-      document.getElementById('a8').removeEventListener("click", funkcjaBox8);
-    }
+  function funkcjaBox8() {
+    document.getElementById('a8').style.backgroundImage =
+      'url("trollface_sad.png")';
+    document.getElementById('a8').style.backgroundSize =
+      '100%';
+    document.getElementById('a8').style.backgroundRepeat =
+      'no-repeat';
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+
+    $('#a0').off("click", funkcjaBox0);
+    $('#a1').off("click", funkcjaBox1);
+    $('#a2').off("click", funkcjaBox2);
+    $('#a3').off("click", funkcjaBox3);
+    $('#a4').off("click", funkcjaBox4);
+    $('#a5').off("click", funkcjaBox5);
+    $('#a6').off("click", funkcjaBox6);
+    $('#a7').off("click", funkcjaBox7);
+    $('#a8').off("click", funkcjaBox8);
+  }
 
   function resetuj() {
     for (var i=0; i<8; i++) {
-    document.querySelectorAll('.kafelek img')[i].classList.remove('show-hide')
+      document.querySelectorAll('.kafelek img')[i].classList.remove('show-hide')
     }
     document.getElementById('a8').style.backgroundImage =
       'url("")';
