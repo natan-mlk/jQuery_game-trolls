@@ -1,0 +1,187 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="kwadraty2.css">
+  <meta charset="utf-8">
+  <title>Trollowe kwadraty</title>
+</head>
+
+<body>
+<p>Gdzieś pod polami ukryty jest troll-face. Znajdź go i złap,
+  klikając na niego. Długo nie może uciekać</p>
+<p>Kliknąłeś:</p>
+<p id="kliki">0</p>
+<p>
+  <button id="start">START</button>
+  <button id="reset">Jeszcze raz</button>
+</p>
+<div id='main'>
+</div>
+
+<script>
+  document.getElementById('start').addEventListener("click", wystartuj);
+  document.getElementById('reset').addEventListener("click", resetuj);
+
+  var licznik = document.getElementById('kliki').innerHTML;
+  var wszystkieKwadraty = [];
+
+
+  for (var i = 0; i < 9; ++i) {
+    wszystkieKwadraty[i] = document.createElement('div');
+    wszystkieKwadraty[i].id = 'a' + (i);
+    wszystkieKwadraty[i].className = 'kafelek';
+  }
+
+  for (var j = 1; j <= 8; ++j) {
+    var trollfaceImg = document.createElement('img');
+    trollfaceImg.src = "trollface.png";
+    trollfaceImg.id = 't' + j;
+    wszystkieKwadraty[j].appendChild(trollfaceImg);
+  }
+
+  function wystartuj() {
+    document.getElementById('start').disabled = true;
+
+    // SZUFLOWANIE
+    //metoda Fisher-Yates
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // dopóki są pozostajace elementy do szuflowania
+      while (0 !== currentIndex) {
+
+        // weź pozostały element
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // i zamień go z obecnym elementem
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    }
+
+    shuffle(wszystkieKwadraty);
+    var main = document.getElementsByTagName('div')[0];
+    (function () {
+      for (var i = 0; i < wszystkieKwadraty.length; i++) {
+        main.appendChild(wszystkieKwadraty[i]);
+      }
+    })();
+
+    document.getElementById('a0').addEventListener("click", funkcjaBox0);
+    document.getElementById('a1').addEventListener("click", funkcjaBox1);
+    document.getElementById('a2').addEventListener("click", funkcjaBox2);
+    document.getElementById('a3').addEventListener("click", funkcjaBox3);
+    document.getElementById('a4').addEventListener("click", funkcjaBox4);
+    document.getElementById('a5').addEventListener("click", funkcjaBox5);
+    document.getElementById('a6').addEventListener("click", funkcjaBox6);
+    document.getElementById('a7').addEventListener("click", funkcjaBox7);
+    document.getElementById('a8').addEventListener("click", funkcjaBox8);
+  }
+
+    function funkcjaBox0() {
+      document.getElementById('t1').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t1').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox1() {
+      document.getElementById('t2').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t2').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox2() {
+      document.getElementById('t3').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t3').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox3() {
+      document.getElementById('t4').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t4').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox4() {
+      document.getElementById('t5').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t5').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox5() {
+      document.getElementById('t6').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t6').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox6() {
+      document.getElementById('t7').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t7').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox7() {
+      document.getElementById('t8').classList.add('show-hide');
+      setTimeout(function () {
+        document.getElementById('t8').classList.remove('show-hide')
+      }, 400);
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+    }
+
+    function funkcjaBox8() {
+      document.getElementById('a8').style.backgroundImage =
+        'url("trollface_sad.png")';
+      document.getElementById('a8').style.backgroundSize =
+        '100%';
+      document.getElementById('a8').style.backgroundRepeat =
+        'no-repeat';
+      licznik++;
+      document.getElementById('kliki').innerHTML = licznik;
+      document.getElementById('a0').removeEventListener("click", funkcjaBox0);
+      document.getElementById('a1').removeEventListener("click", funkcjaBox1);
+      document.getElementById('a2').removeEventListener("click", funkcjaBox2);
+      document.getElementById('a3').removeEventListener("click", funkcjaBox3);
+      document.getElementById('a4').removeEventListener("click", funkcjaBox4);
+      document.getElementById('a5').removeEventListener("click", funkcjaBox5);
+      document.getElementById('a6').removeEventListener("click", funkcjaBox6);
+      document.getElementById('a7').removeEventListener("click", funkcjaBox7);
+      document.getElementById('a8').removeEventListener("click", funkcjaBox8);
+    }
+
+  function resetuj() {
+    for (var i=0; i<8; i++) {
+    document.querySelectorAll('.kafelek img')[i].classList.remove('show-hide')
+    }
+    document.getElementById('a8').style.backgroundImage =
+      'url("")';
+    document.getElementById('kliki').innerHTML = 0;
+    wystartuj();
+  }
+
+</script>
+</body>
+</html>
