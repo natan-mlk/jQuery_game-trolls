@@ -81,84 +81,74 @@
     $('#a8').on("click", funkcjaBox8);
   }
 
+  function zmianyLicznika () {
+    licznik = document.getElementById('kliki').innerHTML;
+    licznik++;
+    document.getElementById('kliki').innerHTML = licznik;
+  }
+
   function funkcjaBox0() {
     $('#t1').addClass('show-hide');
     setTimeout(function () {
       $('#t1').removeClass('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox1() {
     $('#t2').addClass('show-hide');
     setTimeout(function () {
       $('#t2').removeClass('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox2() {
     $('#t3').addClass('show-hide');
     setTimeout(function () {
       $('#t3').removeClass('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox3() {
     document.getElementById('t4').classList.add('show-hide');
     setTimeout(function () {
       document.getElementById('t4').classList.remove('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox4() {
     document.getElementById('t5').classList.add('show-hide');
     setTimeout(function () {
       document.getElementById('t5').classList.remove('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox5() {
     document.getElementById('t6').classList.add('show-hide');
     setTimeout(function () {
       document.getElementById('t6').classList.remove('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox6() {
     document.getElementById('t7').classList.add('show-hide');
     setTimeout(function () {
       document.getElementById('t7').classList.remove('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox7() {
     document.getElementById('t8').classList.add('show-hide');
     setTimeout(function () {
       document.getElementById('t8').classList.remove('show-hide')
-    }, 400);
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    }, 600);
+    zmianyLicznika();
   }
 
   function funkcjaBox8() {
@@ -168,9 +158,7 @@
       '100%';
     document.getElementById('a8').style.backgroundRepeat =
       'no-repeat';
-    licznik = document.getElementById('kliki').innerHTML;
-    licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    zmianyLicznika();
 
     $('#a0').off("click", funkcjaBox0);
     $('#a1').off("click", funkcjaBox1);
