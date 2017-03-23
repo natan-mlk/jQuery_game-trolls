@@ -63,28 +63,38 @@
     }
 
     shuffle(wszystkieKwadraty);
-    //var main = document.getElementsByTagName('div')[0];
     (function () {
       for (var i = 0; i < wszystkieKwadraty.length; i++) {
         $('#main').append(wszystkieKwadraty[i]);
       }
     })();
 
-    $('#a0').on("click", funkcjaBox0);
-    $('#a1').on("click", funkcjaBox1);
-    $('#a2').on("click", funkcjaBox2);
-    $('#a3').on("click", funkcjaBox3);
-    $('#a4').on("click", funkcjaBox4);
-    $('#a5').on("click", funkcjaBox5);
-    $('#a6').on("click", funkcjaBox6);
-    $('#a7').on("click", funkcjaBox7);
-    $('#a8').on("click", funkcjaBox8);
+    document.getElementById('a0').addEventListener("click", funkcjaBox0);
+    document.getElementById('a1').addEventListener("click", funkcjaBox1);
+    document.getElementById('a2').addEventListener("click", funkcjaBox2);
+    document.getElementById('a3').addEventListener("click", funkcjaBox3);
+    document.getElementById('a4').addEventListener("click", funkcjaBox4);
+    document.getElementById('a5').addEventListener("click", funkcjaBox5);
+    document.getElementById('a6').addEventListener("click", funkcjaBox6);
+    document.getElementById('a7').addEventListener("click", funkcjaBox7);
+    document.getElementById('a8').addEventListener("click", funkcjaBox8);
+
+
+//    $('#a0').on("click", funkcjaBox0);
+//    $('#a1').on("click", funkcjaBox1);
+//    $('#a2').on("click", funkcjaBox2);
+//    $('#a3').on("click", funkcjaBox3);
+//    $('#a4').on("click", funkcjaBox4);
+//    $('#a5').on("click", funkcjaBox5);
+//    $('#a6').on("click", funkcjaBox6);
+//    $('#a7').on("click", funkcjaBox7);
+//    $('#a8').on("click", funkcjaBox8);
   }
 
   function zmianyLicznika () {
-    licznik = document.getElementById('kliki').innerHTML;
+    licznik = $('#kliki').html();
     licznik++;
-    document.getElementById('kliki').innerHTML = licznik;
+    $('#kliki').html(licznik);
   }
 
   function funkcjaBox0() {
