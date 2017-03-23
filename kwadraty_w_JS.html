@@ -170,24 +170,35 @@
       'no-repeat';
     zmianyLicznika();
 
-    $('#a0').off("click", funkcjaBox0);
-    $('#a1').off("click", funkcjaBox1);
-    $('#a2').off("click", funkcjaBox2);
-    $('#a3').off("click", funkcjaBox3);
-    $('#a4').off("click", funkcjaBox4);
-    $('#a5').off("click", funkcjaBox5);
-    $('#a6').off("click", funkcjaBox6);
-    $('#a7').off("click", funkcjaBox7);
-    $('#a8').off("click", funkcjaBox8);
+//    $('#a0').off("click", funkcjaBox0);
+//    $('#a1').off("click", funkcjaBox1);
+//    $('#a2').off("click", funkcjaBox2);
+//    $('#a3').off("click", funkcjaBox3);
+//    $('#a4').off("click", funkcjaBox4);
+//    $('#a5').off("click", funkcjaBox5);
+//    $('#a6').off("click", funkcjaBox6);
+//    $('#a7').off("click", funkcjaBox7);
+//    $('#a8').off("click", funkcjaBox8);
+
+
+    document.getElementById('a0').removeEventListener("click", funkcjaBox0);
+    document.getElementById('a1').removeEventListener("click", funkcjaBox1);
+    document.getElementById('a2').removeEventListener("click", funkcjaBox2);
+    document.getElementById('a3').removeEventListener("click", funkcjaBox3);
+    document.getElementById('a4').removeEventListener("click", funkcjaBox4);
+    document.getElementById('a5').removeEventListener("click", funkcjaBox5);
+    document.getElementById('a6').removeEventListener("click", funkcjaBox6);
+    document.getElementById('a7').removeEventListener("click", funkcjaBox7);
+    document.getElementById('a8').removeEventListener("click", funkcjaBox8);
+
   }
 
   function resetuj() {
     for (var i=0; i<8; i++) {
       document.querySelectorAll('.kafelek img')[i].classList.remove('show-hide')
     }
-    document.getElementById('a8').style.backgroundImage =
-      'url("")';
-    document.getElementById('kliki').innerHTML = 0;
+    $('#a8').css('backgroundImage','url("")');
+    $('#kliki').html(0);
     wystartuj();
   }
 
